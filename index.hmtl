@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hochzeitseinladung</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#D4A9A9", secondary: "#E8D8D8" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #FFFFFF;
+      color: #8A8A8A;
+      }
+      .timeline-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #D4A9A9;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      }
+      .timeline-line {
+      width: 2px;
+      background-color: #D4A9A9;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      }
+      .timeline-item {
+      position: relative;
+      padding: 20px 0;
+      }
+      .timeline-content {
+      width: 100%;
+      padding: 0 15px;
+      }
+      .highlight {
+      color: #D4A9A9;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <div
+      class="relative min-h-screen w-full max-w-[375px] mx-auto pb-16 overflow-x-hidden"
+    >
+      <!-- Header -->
+      <header class="pt-10 px-6 text-center">
+        <div class="w-full h-[500px] mx-auto mb-8 relative overflow-hidden">
+          <img
+            src="https://static.readdy.ai/image/30012ad9c5b014d52aea1e90ea47f5e0/e96e13d87759205ee292170c6ad9d68d.png"
+            alt="Wedding Invitation"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <h1 class="text-xl uppercase tracking-widest font-light mb-6">
+          Wir laden euch herzlich zu unserer standesamtlichen hochzeit ein!
+        </h1>
+      </header>
+      <!-- Timeline -->
+      <div class="relative px-6 py-4">
+        <div class="timeline-line"></div>
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item flex flex-col items-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content grid grid-cols-2 gap-4">
+            <div class="text-right">
+              <h4 class="text-lg font-medium">ab 09:30 Uhr</h4>
+              <p class="text-base">Treffen</p>
+              <p class="text-sm">Kaiser Wilhelm Denkmal</p>
+              <p class="text-sm">Porta Westfalica</p>
+            </div>
+            <div class="flex items-center justify-start">
+              <div class="w-16 h-16 flex items-center justify-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20map%20pin%20illustration%2C%20minimalist%20line%20drawing%2C%20simple%20elegant%20design%2C%20isolated%20on%20white%20background%2C%20centered%20composition&width=100&height=100&seq=2&orientation=squarish"
+                  alt="Treffpunkt"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item flex flex-col items-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content grid grid-cols-2 gap-4">
+            <div class="flex items-center justify-end">
+              <div class="w-16 h-16 flex items-center justify-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20wedding%20rings%20illustration%2C%20minimalist%20line%20drawing%2C%20simple%20elegant%20design%2C%20isolated%20on%20white%20background%2C%20centered%20composition&width=100&height=100&seq=3&orientation=squarish"
+                  alt="Eheringe"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            <div class="text-left">
+              <h4 class="text-lg font-medium">10:30 Uhr</h4>
+              <p class="text-base">Standesamtliche</p>
+              <p class="text-base">Trauung</p>
+            </div>
+          </div>
+        </div>
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item flex flex-col items-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content grid grid-cols-2 gap-4">
+            <div class="text-right">
+              <h4 class="text-lg font-medium">11:30 Uhr</h4>
+              <p class="text-base">Sektempfang &</p>
+              <p class="text-base">Fotos</p>
+            </div>
+            <div class="flex items-center justify-start">
+              <div class="w-16 h-16 flex items-center justify-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20camera%20illustration%2C%20minimalist%20line%20drawing%2C%20simple%20elegant%20design%2C%20isolated%20on%20white%20background%2C%20centered%20composition&width=100&height=100&seq=4&orientation=squarish"
+                  alt="Kamera"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Timeline Item 4 -->
+        <div class="timeline-item flex flex-col items-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content grid grid-cols-2 gap-4">
+            <div class="flex items-center justify-end">
+              <div class="w-16 h-16 flex items-center justify-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20dining%20plate%20and%20cutlery%20illustration%2C%20minimalist%20line%20drawing%2C%20simple%20elegant%20design%2C%20isolated%20on%20white%20background%2C%20centered%20composition&width=100&height=100&seq=5&orientation=squarish"
+                  alt="Essen"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            <div class="text-left">
+              <h4 class="text-lg font-medium">ab 12:30 Uhr</h4>
+              <p class="text-base">Grillen</p>
+              <p class="text-sm">Hausberger Schweiz 16</p>
+              <p class="text-sm">Porta Westfalica</p>
+            </div>
+          </div>
+        </div>
+        <!-- Timeline Item 5 -->
+        <div class="timeline-item flex flex-col items-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content grid grid-cols-2 gap-4">
+            <div class="text-right">
+              <h4 class="text-lg font-medium">15:30 Uhr</h4>
+              <p class="text-base">Hochzeitstorte &</p>
+              <p class="text-base">Gartenparty</p>
+            </div>
+            <div class="flex items-center justify-start">
+              <div class="w-16 h-16 flex items-center justify-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20wedding%20cake%20illustration%2C%20minimalist%20line%20drawing%2C%20simple%20elegant%20design%2C%20isolated%20on%20white%20background%2C%20centered%20composition&width=100&height=100&seq=6&orientation=squarish"
+                  alt="Hochzeitstorte"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+        
