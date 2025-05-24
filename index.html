@@ -26,11 +26,6 @@
         },
       };
     </script>
-    <!-- Remix Icon CSS (OpenSource) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -75,12 +70,13 @@
       .timeline-content {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0 5rem; /* Icon/Text weiter nach außen */
+        gap: 0 5rem; /* Abstand Icon/Text zur Mitte */
         padding: 0 1.5rem; /* px-6 */
       }
-      .timeline-content i {
-        font-size: 2.5rem; /* Icon-Größe */
-        color: #D4A9A9;    /* primary-Farbe */
+      .timeline-icon {
+        width: 4rem;  /* beliebig anpassen */
+        height: 4rem;
+        object-contain;
       }
       .highlight {
         color: #D4A9A9;
@@ -108,12 +104,16 @@
       <div class="relative px-6 py-4">
         <div class="timeline-line"></div>
 
-        <!-- Item 1: Eheringe -->
+        <!-- Item 1: Eheringe (icon: ring.svg) -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="flex items-center justify-end">
-              <i class="ri-ring-line"></i>
+              <img
+                src="ring.png"
+                alt="Eheringe"
+                class="timeline-icon"
+              />
             </div>
             <div class="text-left">
               <h4 class="text-lg font-medium">10:30 Uhr</h4>
@@ -123,7 +123,7 @@
           </div>
         </div>
 
-        <!-- Item 2: Kamera -->
+        <!-- Item 2: Sektempfang (icon: camera.svg) -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -135,17 +135,25 @@
               <p class="text-sm">Porta Westfalica</p>
             </div>
             <div class="flex items-center justify-start">
-              <i class="ri-camera-line"></i>
+              <img
+                src="camera.png"
+                alt="Kamera"
+                class="timeline-icon"
+              />
             </div>
           </div>
         </div>
 
-        <!-- Item 3: Grillen -->
+        <!-- Item 3: Grillen (icon: grill.svg) -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="flex items-center justify-end">
-              <i class="ri-restaurant-line"></i>
+              <img
+                src="grill.png"
+                alt="Grillen"
+                class="timeline-icon"
+              />
             </div>
             <div class="text-left">
               <h4 class="text-lg font-medium">ab 12:30 Uhr</h4>
@@ -156,7 +164,7 @@
           </div>
         </div>
 
-        <!-- Item 4: Torte -->
+        <!-- Item 4: Torte (icon: cake.svg) -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -166,7 +174,11 @@
               <p class="text-base">Gartenparty</p>
             </div>
             <div class="flex items-center justify-start">
-              <i class="ri-cake-2-line"></i>
+              <img
+                src="cake.png"
+                alt="Hochzeitstorte"
+                class="timeline-icon"
+              />
             </div>
           </div>
         </div>
