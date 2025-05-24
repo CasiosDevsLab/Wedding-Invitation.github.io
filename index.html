@@ -49,14 +49,7 @@
         background-color: #FFFFFF;
         color: #8A8A8A;
       }
-      .timeline-dot {
-        width: 10px;
-        height: 10px;
-        background-color: #D4A9A9;
-        border-radius: 50%;
-        position: relative;
-        z-index: 2;
-      }
+      /* vertikale Linie */
       .timeline-line {
         width: 2px;
         background-color: #D4A9A9;
@@ -67,9 +60,29 @@
         transform: translateX(-50%);
         z-index: 1;
       }
+      /* jeder Eintrag */
       .timeline-item {
         position: relative;
         padding: 20px 0;
+      }
+      /* der Punkt */
+      .timeline-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #D4A9A9;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+      }
+      /* Inhalt: 2 Spalten (Icon/Text) */
+      .timeline-content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+        padding: 0 15px;
       }
       .highlight {
         color: #D4A9A9;
@@ -89,7 +102,7 @@
         </div>
         <h1 class="text-xl uppercase tracking-widest font-light mb-6">
           Wir laden euch herzlich zu unserer standesamtlichen hochzeit am
-          <p class="highlight">01.08.2025</p> ein!
+          <span class="highlight">01.08.2025</span> ein!
         </h1>
       </header>
 
@@ -97,10 +110,10 @@
       <div class="relative px-6 py-4">
         <div class="timeline-line"></div>
 
-        <!-- Timeline Item 1 -->
-        <div class="timeline-item flex flex-col items-center">
+        <!-- Item 1 -->
+        <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-content grid grid-cols-2 gap-x-10 gap-y-4 mt-[50%] -translate-y-1/2 w-full">
+          <div class="timeline-content">
             <div class="flex items-center justify-end">
               <div class="w-16 h-16 flex items-center justify-center">
                 <img
@@ -118,13 +131,13 @@
           </div>
         </div>
 
-        <!-- Timeline Item 2 -->
-        <div class="timeline-item flex flex-col items-center">
+        <!-- Item 2 -->
+        <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-content grid grid-cols-2 gap-x-10 gap-y-4 mt-[50%] -translate-y-1/2 w-full">
+          <div class="timeline-content">
             <div class="text-right">
               <h4 class="text-lg font-medium">11:30 Uhr</h4>
-              <p class="text-base">Sektempfang &</p>
+              <p class="text-base">Sektempfang &amp;</p>
               <p class="text-base">Fotos</p>
               <p class="text-sm">Kaiser Wilhelm Denkmal</p>
               <p class="text-sm">Porta Westfalica</p>
@@ -141,10 +154,10 @@
           </div>
         </div>
 
-        <!-- Timeline Item 3 -->
-        <div class="timeline-item flex flex-col items-center">
+        <!-- Item 3 -->
+        <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-content grid grid-cols-2 gap-x-10 gap-y-4 mt-[50%] -translate-y-1/2 w-full">
+          <div class="timeline-content">
             <div class="flex items-center justify-end">
               <div class="w-16 h-16 flex items-center justify-center">
                 <img
@@ -163,13 +176,13 @@
           </div>
         </div>
 
-        <!-- Timeline Item 4 -->
-        <div class="timeline-item flex flex-col items-center">
+        <!-- Item 4 -->
+        <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-content grid grid-cols-2 gap-x-10 gap-y-4 mt-[50%] -translate-y-1/2 w-full">
+          <div class="timeline-content">
             <div class="text-right">
               <h4 class="text-lg font-medium">15:30 Uhr</h4>
-              <p class="text-base">Hochzeitstorte &</p>
+              <p class="text-base">Hochzeitstorte &amp;</p>
               <p class="text-base">Gartenparty</p>
             </div>
             <div class="flex items-center justify-start">
@@ -188,4 +201,3 @@
     </div>
   </body>
 </html>
-
