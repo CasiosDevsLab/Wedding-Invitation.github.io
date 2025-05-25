@@ -59,7 +59,7 @@
       /* Punkt exakt auf der Linie */
       .timeline-dot {
         position: absolute;
-        left: 1.5rem;
+        left: 0rem;          /* angepasst von 1.5rem auf 0rem */
         margin-left: -5px;
         top: 50%;
         transform: translateY(-50%);
@@ -94,6 +94,7 @@
         align-items: center;
         justify-content: center;
         z-index: 50;
+        padding: 1rem;
       }
       #mapModal.active {
         display: flex;
@@ -102,19 +103,28 @@
         background: white;
         padding: 1.5rem;
         border-radius: 0.5rem;
-        max-width: 90%;
-        max-height: 80%;
+        max-width: 600px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
         position: relative;
       }
+      #mapModal .modal-content h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
       #mapModal .modal-content img {
-        width: 100%;
-        height: auto;
+        display: block;
+        max-width: 100%;
+        max-height: calc(80vh - 5rem);
+        object-fit: contain;
+        margin: 0 auto;
       }
       #mapModal .close-btn {
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
-        font-size: 1.5rem;
+        font-size: 2rem;
         color: #555;
         cursor: pointer;
       }
@@ -136,136 +146,3 @@
         <h1 class="text-2xl uppercase tracking-widest font-light mb-6">
           Wir laden euch herzlich zu unserer standesamtlichen Hochzeit am
           <span class="highlight">01.08.2025</span> ein!
-        </h1>
-      </header>
-
-      <!-- Timeline (beginnt hier) -->
-      <div class="relative px-6 py-4">
-        <div class="timeline-line"></div>
-
-        <!-- Item 1 -->
-        <div
-          class="timeline-item opacity-0 translate-y-8 transition-all duration-700"
-        >
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <img src="pin.png" alt="Pin" class="timeline-icon" />
-            <div>
-              <h4 class="text-xl font-medium">10:00 Uhr</h4>
-              <p class="text-lg">Treffen</p>
-              <p class="text-base">Kaiser Wilhelm Denkmal</p>
-              <p class="text-base">
-                Kaiserstraße 15, 32457 Porta Westfalica<br />
-                Das Navi führt euch direkt zum Parkplatz unterhalb des Denkmals. Wir treffen uns am vorderen Eingang des Kaiser Wilhelms (siehe
-                <a href="#" id="openMap" class="text-primary underline">Lageplan</a>).
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div
-          class="timeline-item opacity-0 translate-y-8 transition-all duration-700"
-        >
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <img src="ring.png" alt="Eheringe" class="timeline-icon" />
-            <div>
-              <h4 class="text-xl font-medium">10:30 Uhr</h4>
-              <p class="text-lg">Standesamtliche Trauung</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div
-          class="timeline-item opacity-0 translate-y-8 transition-all duration-700"
-        >
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <img src="camera.png" alt="Kamera" class="timeline-icon" />
-            <div>
-              <h4 class="text-xl font-medium">11:00 Uhr</h4>
-              <p class="text-lg">Sektempfang &amp; Fotos</p>
-              <p class="text-base">Kaiser Wilhelm Denkmal</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div
-          class="timeline-item opacity-0 translate-y-8 transition-all duration-700"
-        >
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <img src="grill.png" alt="Grillen" class="timeline-icon" />
-            <div>
-              <h4 class="text-xl font-medium">ab 12:00 Uhr</h4>
-              <p class="text-lg">Grillen</p>
-              <p class="text-base">Tannenkamp 7, Porta Westfalica</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div
-          class="timeline-item opacity-0 translate-y-8 transition-all duration-700"
-        >
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <img src="cake.png" alt="Torte" class="timeline-icon" />
-            <div>
-              <h4 class="text-xl font-medium">15:00 Uhr</h4>
-              <p class="text-lg">Hochzeitstorte &amp; Gartenparty</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal für Lageplan -->
-    <div id="mapModal">
-      <div class="modal-content">
-        <span id="closeMap" class="close-btn">&times;</span>
-        <img src="lageplan.jpg" alt="Lageplan" />
-      </div>
-    </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Scroll-Reveal
-        const items = document.querySelectorAll('.timeline-item');
-        const observer = new IntersectionObserver(
-          (entries, obs) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.remove('opacity-0', 'translate-y-8');
-                obs.unobserve(entry.target);
-              }
-            });
-          },
-          { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
-        );
-        items.forEach((item) => observer.observe(item));
-
-        // Modal-Logik
-        const openMap = document.getElementById('openMap');
-        const mapModal = document.getElementById('mapModal');
-        const closeMap = document.getElementById('closeMap');
-
-        openMap.addEventListener('click', (e) => {
-          e.preventDefault();
-          mapModal.classList.add('active');
-        });
-        closeMap.addEventListener('click', () => {
-          mapModal.classList.remove('active');
-        });
-        mapModal.addEventListener('click', (e) => {
-          if (e.target === mapModal) {
-            mapModal.classList.remove('active');
-          }
-        });
-      });
-    </script>
-  </body>
-</html>
