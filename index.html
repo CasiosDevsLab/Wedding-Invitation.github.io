@@ -45,7 +45,7 @@
       /* vertikale Linie links */
       .timeline-line {
         position: absolute;
-        left: 1.5rem; /* Tailwind left-6 */
+        left: 1.5rem; /* entspricht px-6 im Container */
         top: 0;
         bottom: 0;
         width: 2px;
@@ -54,28 +54,29 @@
       }
       .timeline-item {
         position: relative;
-        padding: 40px 0;
-        padding-left: 3rem; /* Tailwind pl-12 */
+        padding: 40px 0; /* nur vertikaler Abstand */
+        /* padding-left entfernt */
       }
-      /* Punkt auf der Linie genau mittig */
+      /* Punkt exakt auf der Linie */
       .timeline-dot {
         position: absolute;
-        left: 1.5rem;        /* exakt gleiche Position wie die Linie */
-        margin-left: -5px;   /* halb so breit wie der Punkt (10px/2) */
+        left: 1.5rem;       /* gleiche Position wie die Linie */
+        margin-left: -5px;  /* halb so breit wie der Punkt */
         top: 50%;
-        transform: translateY(-50%); /* nur vertical zentrieren */
+        transform: translateY(-50%);
         width: 10px;
         height: 10px;
         background-color: #D4A9A9;
         border-radius: 50%;
         z-index: 2;
       }
-      /* Icon oben, Text darunter */
+      /* Icon oben, Text darunter; weiter rechts eingerückt */
       .timeline-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+        margin-left: 3rem; /* rückt Icon/Text rechten der Linie ein */
       }
       .timeline-icon {
         width: 4rem;
@@ -88,9 +89,7 @@
     </style>
   </head>
   <body class="bg-white">
-    <div
-      class="relative min-h-screen w-full max-w-[375px] mx-auto pb-16 overflow-x-hidden"
-    >
+    <div class="relative min-h-screen w-full max-w-[375px] mx-auto pb-16 overflow-x-hidden">
       <!-- Header -->
       <header class="pt-10 px-6 text-center">
         <div class="w-full h-[500px] mx-auto mb-8 relative overflow-hidden">
@@ -100,7 +99,7 @@
             class="w-full h-full object-contain"
           />
         </div>
-        <h1 class="text-xl uppercase tracking-widest font-light mb-6">
+        <h1 class="text-2xl uppercase tracking-widest font-light mb-6">
           Wir laden euch herzlich zu unserer standesamtlichen Hochzeit am
           <span class="highlight">01.08.2025</span> ein!
         </h1>
@@ -116,14 +115,13 @@
           <div class="timeline-content">
             <img src="pin.png" alt="Pin" class="timeline-icon" />
             <div>
-              <h4 class="text-lg font-medium">10:00 Uhr</h4>
-              <p class="text-base">Treffen</p>
-              <p class="text-sm">Kaiser Wilhelm Denkmal</p>
-              <p class="text-sm">Kaiserstraße 15, 32457 Porta Westfalica</p>
+              <h4 class="text-xl font-medium">10:00 Uhr</h4>
+              <p class="text-lg">Treffen</p>
+              <p class="text-base">Kaiser Wilhelm Denkmal</p>
+              <p class="text-base">Kaiserstraße 15, 32457 Porta Westfalica</p>
               <br />
-              <p class="text-sm">
-                Das Navi führt euch direkt zum Parkplatz unterhalb des Denkmals.
-                Wir treffen uns am vorderen Eingang des Kaiser Wilhelms.
+              <p class="text-base">
+                Das Navi führt euch direkt zum Parkplatz unterhalb des Denkmals. Wir treffen uns am vorderen Eingang des Kaiser Wilhelms.
               </p>
             </div>
           </div>
@@ -135,8 +133,8 @@
           <div class="timeline-content">
             <img src="ring.png" alt="Eheringe" class="timeline-icon" />
             <div>
-              <h4 class="text-lg font-medium">10:30 Uhr</h4>
-              <p class="text-base">Standesamtliche Trauung</p>
+              <h4 class="text-xl font-medium">10:30 Uhr</h4>
+              <p class="text-lg">Standesamtliche Trauung</p>
             </div>
           </div>
         </div>
@@ -147,9 +145,9 @@
           <div class="timeline-content">
             <img src="camera.png" alt="Kamera" class="timeline-icon" />
             <div>
-              <h4 class="text-lg font-medium">11:00 Uhr</h4>
-              <p class="text-base">Sektempfang &amp; Fotos</p>
-              <p class="text-sm">Kaiser Wilhelm Denkmal</p>
+              <h4 class="text-xl font-medium">11:00 Uhr</h4>
+              <p class="text-lg">Sektempfang &amp; Fotos</p>
+              <p class="text-base">Kaiser Wilhelm Denkmal</p>
             </div>
           </div>
         </div>
@@ -160,9 +158,9 @@
           <div class="timeline-content">
             <img src="grill.png" alt="Grillen" class="timeline-icon" />
             <div>
-              <h4 class="text-lg font-medium">ab 12:00 Uhr</h4>
-              <p class="text-base">Grillen</p>
-              <p class="text-sm">Tannenkamp 7, Porta Westfalica</p>
+              <h4 class="text-xl font-medium">ab 12:00 Uhr</h4>
+              <p class="text-lg">Grillen</p>
+              <p class="text-base">Tannenkamp 7, Porta Westfalica</p>
             </div>
           </div>
         </div>
@@ -173,8 +171,8 @@
           <div class="timeline-content">
             <img src="cake.png" alt="Torte" class="timeline-icon" />
             <div>
-              <h4 class="text-lg font-medium">15:00 Uhr</h4>
-              <p class="text-base">Hochzeitstorte &amp; Gartenparty</p>
+              <h4 class="text-xl font-medium">15:00 Uhr</h4>
+              <p class="text-lg">Hochzeitstorte &amp; Gartenparty</p>
             </div>
           </div>
         </div>
