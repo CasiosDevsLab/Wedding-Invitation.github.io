@@ -95,6 +95,7 @@
       }
       /* Modal-Overlay */
       #mapModal,
+      #mapModal2,
       #grillModal {
         display: none;
         position: fixed;
@@ -106,10 +107,12 @@
         padding: 1rem;
       }
       #mapModal.active,
+      #mapModal2,
       #grillModal.active {
         display: flex;
       }
       #mapModal .modal-content,
+      #mapModal2 .modal-content,
       #grillModal .modal-content {
         background: white;
         padding: 1.5rem;
@@ -121,11 +124,13 @@
         position: relative;
       }
       #mapModal .modal-content h2,
+      #mapModal2 .modal-content h2,
       #grillModal .modal-content h2 {
         font-size: 1.25rem;
         margin-bottom: 0.75rem;
       }
       #mapModal .modal-content img,
+      #mapModal2 .modal-content img,
       #grillModal .modal-content img {
         display: block;
         max-width: 100%;
@@ -134,6 +139,7 @@
         margin: 0 auto;
       }
       #mapModal .close-btn,
+      #mapModal2 .close-btn,
       #grillModal .close-btn {
         position: absolute;
         top: 0.5rem;
