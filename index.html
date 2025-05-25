@@ -42,10 +42,10 @@
         background-color: #FFFFFF;
         color: #8A8A8A;
       }
-      /* vertikale Linie links (left-6 = 1.5rem) */
+      /* vertikale Linie links */
       .timeline-line {
         position: absolute;
-        left: 1.5rem;
+        left: 1.5rem; /* Tailwind left-6 */
         top: 0;
         bottom: 0;
         width: 2px;
@@ -55,12 +55,12 @@
       .timeline-item {
         position: relative;
         padding: 40px 0;
-        padding-left: 3rem; /* pl-12: Abstand von der Linie zum Inhalt */
+        padding-left: 3rem; /* Tailwind pl-12 */
       }
-      /* Punkt auf der Linie (left-6 = 1.5rem) */
+      /* Punkt auf der Linie */
       .timeline-dot {
         position: absolute;
-        left: 1.5rem;
+        left: 1.5rem; /* Tailwind left-6 */
         top: 50%;
         transform: translate(-50%, -50%);
         width: 10px;
@@ -69,13 +69,14 @@
         border-radius: 50%;
         z-index: 2;
       }
+      /* Icon oben, Text darunter */
       .timeline-content {
         display: flex;
+        flex-direction: column;
         align-items: flex-start;
-        gap: 1rem; /* Platz zwischen Icon und Text */
+        gap: 0.5rem;
       }
       .timeline-icon {
-        flex-shrink: 0;
         width: 4rem;
         height: 4rem;
         object-fit: contain;
@@ -87,9 +88,6 @@
   </head>
   <body class="bg-white">
     <div class="relative min-h-screen w-full max-w-[375px] mx-auto pb-16 overflow-x-hidden">
-      <!-- vertikale Timeline-Linie -->
-      <div class="timeline-line"></div>
-
       <!-- Header -->
       <header class="pt-10 px-6 text-center">
         <div class="w-full h-[500px] mx-auto mb-8 relative overflow-hidden">
@@ -105,10 +103,12 @@
         </h1>
       </header>
 
-      <!-- Timeline-Items -->
-      <div class="px-6">
+      <!-- Timeline (beginnt hier) -->
+      <div class="relative px-6 py-4">
+        <div class="timeline-line"></div>
+
         <!-- Item 1 -->
-        <div class="timeline-item">
+        <div class="timeline-item opacity-0 translate-y-8 transition-all duration-700">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <img src="assets/ring.svg" alt="Eheringe" class="timeline-icon" />
@@ -128,7 +128,7 @@
         </div>
 
         <!-- Item 2 -->
-        <div class="timeline-item">
+        <div class="timeline-item opacity-0 translate-y-8 transition-all duration-700">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <img src="assets/ring.svg" alt="Eheringe" class="timeline-icon" />
@@ -140,20 +140,20 @@
         </div>
 
         <!-- Item 3 -->
-        <div class="timeline-item">
+        <div class="timeline-item opacity-0 translate-y-8 transition-all duration-700">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <img src="assets/camera.svg" alt="Kamera" class="timeline-icon" />
             <div>
               <h4 class="text-lg font-medium">11:00 Uhr</h4>
-              <p class="text-base">Sektempfang & Fotos</p>
+              <p class="text-base">Sektempfang &amp; Fotos</p>
               <p class="text-sm">Kaiser Wilhelm Denkmal</p>
             </div>
           </div>
         </div>
 
         <!-- Item 4 -->
-        <div class="timeline-item">
+        <div class="timeline-item opacity-0 translate-y-8 transition-all duration-700">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <img src="assets/grill.svg" alt="Grillen" class="timeline-icon" />
@@ -166,17 +166,36 @@
         </div>
 
         <!-- Item 5 -->
-        <div class="timeline-item">
+        <div class="timeline-item opacity-0 translate-y-8 transition-all duration-700">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <img src="assets/cake.svg" alt="Torte" class="timeline-icon" />
             <div>
               <h4 class="text-lg font-medium">15:00 Uhr</h4>
-              <p class="text-base">Hochzeitstorte & Gartenparty</p>
+              <p class="text-base">Hochzeitstorte &amp; Gartenparty</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const items = document.querySelectorAll('.timeline-item');
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('opacity-0', 'translate-y-8');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: '0px 0px -10% 0px',
+          threshold: 0.1
+        });
+        items.forEach(item => observer.observe(item));
+      });
+    </script>
   </body>
 </html>
