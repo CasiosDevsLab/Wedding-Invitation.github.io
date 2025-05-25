@@ -269,7 +269,7 @@
 
     <div id="mapModal2">
       <div class="modal-content">
-        <span id="closeMap" class="close-btn">&times;</span>
+        <span id="closeMap2" class="close-btn">&times;</span>
         <h2>Anfahrt &amp; Lageplan Treffen 11:00</h2>
         <img src="lageplan2.jpg" alt="Lageplan Treffen 11:00" />
       </div>
@@ -319,12 +319,12 @@
         // Modal-Logik für Treffplan
         const openMap2 = document.getElementById('openMap2');
         const mapModal2 = document.getElementById('mapModal2');
-        const closeMap = document.getElementById('closeMap');
+        const closeMap2 = document.getElementById('closeMap2');
         openMap2.addEventListener('click', (e) => {
           e.preventDefault();
           mapModal2.classList.add('active');
         });
-        closeMap.addEventListener('click', () => {
+        closeMap2.addEventListener('click', () => {
           mapModal2.classList.remove('active');
         });
         mapModal2.addEventListener('click', (e) => {
